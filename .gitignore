@@ -5,6 +5,8 @@
 /.idea/
 *.iml
 
+# lizenz reports
+/credits
 
 
 # Compiled class file
