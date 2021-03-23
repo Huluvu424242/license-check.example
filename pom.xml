@@ -117,11 +117,11 @@
 
         <!-- Böses Beispiel -->
 
-<!--                <dependency>-->
-<!--                    <groupId>com.itextpdf</groupId>-->
-<!--                    <artifactId>itextpdf</artifactId>-->
-<!--                    <version>5.5.13.2</version>-->
-<!--                </dependency>-->
+        <!--                <dependency>-->
+        <!--                    <groupId>com.itextpdf</groupId>-->
+        <!--                    <artifactId>itextpdf</artifactId>-->
+        <!--                    <version>5.5.13.2</version>-->
+        <!--                </dependency>-->
 
 
     </dependencies>
@@ -133,12 +133,6 @@
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>license-maven-plugin</artifactId>
-                    <version>2.0.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -153,6 +147,15 @@
 
             <build>
                 <defaultGoal>clean install</defaultGoal>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>license-maven-plugin</artifactId>
+                            <version>2.0.0</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
                 <plugins>
                     <plugin>
                         <artifactId>maven-clean-plugin</artifactId>
@@ -185,6 +188,7 @@
                             <useMissingFile>true</useMissingFile>
                             <excludedLicenses>
                                 <!-- Die Namen müssen in der Schreibweise exakt stimmen um gefunden zu werden -->
+                                <!-- Also bitte diese Beispiele hier dann entsprechend anpassen -->
                                 <excludedLicense>GNU Affero General Public License v3</excludedLicense>
                                 <excludedLicense>CC BY-NC 3.0</excludedLicense>
                                 <excludedLicense>Confluent Community License</excludedLicense>
@@ -219,7 +223,7 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <!-- prüft auf ungültige Lizenzen und bricht dann ab, logt in target/classes -->
+                                <!-- prüft auf ungültige Lizenzen und bricht dann ab, reported in target/classes -->
                                 <id>check-credits</id>
                                 <phase>process-sources</phase>
                                 <goals>
